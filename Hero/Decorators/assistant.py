@@ -19,7 +19,7 @@ async def unban_assistant_(_, CallbackQuery):
     a = await app.get_chat_member(CallbackQuery.message.chat.id, BOT_ID)
     if not a.can_restrict_members:
         return await CallbackQuery.answer(
-            "ɪ ᴀᴍ ɴᴏᴛ ʜᴀᴠɪɴɢ ʙᴀɴ/ᴜɴʙᴀɴ ᴜsᴇʀ ᴘᴇʀᴍɪssɪᴏɴ. ᴀsᴋ ᴀɴʏ ᴀᴅᴍɪɴ ᴛᴏ ᴜɴʙᴀɴ ᴛʜᴇ ᴀssɪsᴛᴀɴᴛ...",
+            "I am Not having Ban/Unban User Permissions. Ask Any Admin To Unban the Assistant...",
             show_alert=True,
         )
     else:
@@ -29,11 +29,11 @@ async def unban_assistant_(_, CallbackQuery):
             )
         except:
             return await CallbackQuery.answer(
-                "ғᴀɪʟᴇᴅ ᴛᴏ ᴜɴʙᴀɴ",
+                "Failed to Unban",
                 show_alert=True,
             )
         return await CallbackQuery.edit_message_text(
-            "ᴀssɪsᴛᴀɴᴛ ᴜɴʙᴀɴɴᴇᴅ ᴛʀʏ ᴘʟᴀʏɪɴɢ ɴᴏᴡ..."
+            "Assistant Unbaned Try Playing Now ..."
         )
 
 
@@ -63,7 +63,7 @@ def AssistantAdd(mystic):
                 [
                     [
                         InlineKeyboardButton(
-                            text="🗑 ᴜɴʙᴀɴ ᴀssɪsᴛᴀɴᴛ",
+                            text="🗑 Unban Assistant",
                             callback_data=f"unban_assistant a|{ASS_ID}",
                         )
                     ],
@@ -71,12 +71,12 @@ def AssistantAdd(mystic):
             )
             if b.status == "kicked":
                 return await message.reply_text(
-                    f"ᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ[{ASS_ID}] ɪs ʙᴀɴɴᴇᴅ...\nᴜɴʙᴀɴ ɪᴛ ғɪʀsᴛ ᴛᴏ ᴜsᴇ ᴍᴜsɪᴄ ʙᴏᴛ...\n\nᴜsᴇʀɴᴀᴍᴇ: @{ASS_USERNAME}",
+                    f"Assistant Account[{ASS_ID}] Is Banned...\nUnban It First to Music Bot...\n\nUsername: @{ASS_USERNAME}",
                     reply_markup=key,
                 )
             if b.status == "banned":
                 return await message.reply_text(
-                    f"ᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ[{ASS_ID}] ɪs ʙᴀɴɴᴇᴅ...\nᴜɴʙᴀɴ ɪᴛ ғɪʀsᴛ ᴛᴏ ᴜsᴇ ᴍᴜsɪᴄ ʙᴏᴛ...\n\nᴜsᴇʀɴᴀᴍᴇ: @{ASS_USERNAME}",
+                    f"Assistant Account[{ASS_ID}] Is Banned...\nUnban It First to Music Bot...\n\nUsername: @{ASS_USERNAME}",
                     reply_markup=key,
                 )
         except UserNotParticipant:
@@ -87,7 +87,7 @@ def AssistantAdd(mystic):
                     pass
                 except Exception as e:
                     await message.reply_text(
-                        f"__ᴀssɪsᴛᴀɴᴛ ғᴀɪʟᴇᴅ ᴛᴏ Join__\n\n**ʀᴇᴀsᴏɴ**: {e}"
+                        f"__Assistant Failed to Join__\n\n**Reason**: {e}"
                     )
                     return
             else:
@@ -101,13 +101,13 @@ def AssistantAdd(mystic):
                         )
                     await ASS_ACC.join_chat(invitelink)
                     await message.reply(
-                        f"{ASS_NAME} ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ",
+                        f"{ASS_NAME} Joined Assistant",
                     )
                 except UserAlreadyParticipant:
                     pass
                 except Exception as e:
                     await message.reply_text(
-                        f"__ᴀssɪsᴛᴀɴᴛ ғᴀɪʟᴇᴅ ᴛᴏ ᴊᴏɪɴ__\n\n**ʀᴇᴀsᴏɴ**: {e}"
+                        f"__Assistant Failed to Join__\n\n**Reason**: {e}"
                     )
                     return
         return await mystic(_, message)
