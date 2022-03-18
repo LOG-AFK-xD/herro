@@ -33,12 +33,12 @@ async def telegram_download(message, mystic):
             text = f"""
 **{MUSIC_BOT_NAME} 𝙏𝙚𝙡𝙚𝙜𝙧𝙖𝙢 𝙈𝙚𝙙𝙞𝙖 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙𝙚𝙧**
 
-**ᴛᴏᴛᴀʟ ғɪʟᴇsɪᴢᴇ:** `{total_size}`
-**ᴄᴏᴍᴘʟᴇᴛᴇᴅ:** `{completed_size}`
-**ᴘᴇʀᴄᴇɴᴛᴀɢᴇ:** `{percentage}%`
+**Total FileSize:** `{total_size}`
+**Completed:** `{completed_size}`
+**Percentage:** `{percentage}%`
 
-**sᴘᴇᴇᴅ:** `{speed}/s`
-**ᴇᴛᴀ:** `{eta}`"""
+**Speed:** `{speed}/s`
+**Eta:** `{eta}`"""
             try:
                 await mystic.edit(text)
             except FloodWait as e:
