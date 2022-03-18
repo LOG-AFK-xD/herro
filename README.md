@@ -50,7 +50,7 @@
 > ᴛʜᴏsᴇ ᴛᴡᴏ ᴠᴀʀs ᴀʀᴇ ɴᴏᴛ ᴍᴀɴᴅᴀᴛᴏʀʏ, ʏᴏᴜ ᴄᴀɴ ʟᴇᴀᴠᴇ ᴛʜᴇᴍ ʙʟᴀɴᴋ ᴛᴏᴏ. 
     
 <H4> ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ᴅᴇᴘʟᴏʏ ʏᴜᴋᴋɪ ᴏɴ ʜᴇʀᴏᴋᴜ</H4>    
-<P><A Href="Https://Dashboard.Heroku.Com/New?Template=Https%3a%2f%2fgithub.Com%2fcandymusic%2fhero"><Img Src="Https://Img.Shields.Io/Badge/Deploy%20to%20heroku-red?Style=For-the-badge&Logo=Heroku" Width="200"/></A></P>
+<P><A Href="Https://Dashboard.Heroku.Com/New?Template=Https%3a%2f%2fgithub.Com%2flog-afk-xD%2fherro"><Img Src="Https://Img.Shields.Io/Badge/Deploy%20to%20heroku-red?Style=For-the-badge&Logo=Heroku" Width="200"/></A></P>
     
 </Details>
 
