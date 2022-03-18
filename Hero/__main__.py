@@ -328,10 +328,10 @@ async def start_command(_, message):
                 [
                     [
                         InlineKeyboardButton(
-                            text="🎥 ᴡᴀᴛᴄʜ ʏᴏᴜᴛᴜʙᴇ ᴠɪᴅᴇᴏ", url=f"{link}"
+                            text="🎥 Watch Youtube Video", url=f"{link}"
                         ),
                         InlineKeyboardButton(
-                            text="🔄 ᴄʟᴏsᴇ", callback_data="close"
+                            text="🔄 Close", callback_data="close"
                         ),
                     ],
                 ]
@@ -350,7 +350,7 @@ async def start_command(_, message):
                 umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
                 return await LOG_CLIENT.send_message(
                     LOG_GROUP_ID,
-                    f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <code>ᴠɪᴅᴇᴏ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</code>\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
+                    f"{message.from_user.mention} Has Just Started Bot To Check <code>Video Information</code>\n\n**User ID:** {sender_id}\n**User Name:** {sender_name}",
                 )
             return
     out = private_panel()
@@ -364,7 +364,7 @@ async def start_command(_, message):
         umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
         return await LOG_CLIENT.send_message(
             LOG_GROUP_ID,
-            f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ.\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
+            f"{message.from_user.mention} Has Just Started Bot.\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**User Name:** {sender_name}",
         )
     return
 
@@ -373,10 +373,10 @@ async def help_parser(name, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     return (
-        """ʜᴇʟʟᴏ {first_name},
-ɪ ᴀᴍ ᴀ ᴍᴜsɪᴄ ʙᴏᴛ, ɪ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜsɪᴄ ɪɴ ʏᴏᴜʀ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ.
+        """Hello {first_name},
+I Am Invite Music Bot I Can Play Music Your Voice Chat Click On The Buttons For More InInformation.
 
-ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ: `/`
+All Command Can Be Used With: `/`
 """.format(
             first_name=name
         ),
@@ -398,11 +398,10 @@ async def help_button(client, query):
     next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
     create_match = re.match(r"help_create", query.data)
-    top_text = f"""ʜᴇʟʟᴏ {query.from_user.first_name},
+    top_text = f"""Hello {query.from_user.first_name},
 
-ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ.
-
-ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ: /
+Click On The Buttons For Information.
+All Command Can Be Used With: /
  """
     if mod_match:
         module = mod_match.group(1)
@@ -416,10 +415,10 @@ async def help_button(client, query):
             [
                 [
                     InlineKeyboardButton(
-                        text="↪️ ʙᴀᴄᴋ", callback_data="help_back"
+                        text="↪️ Back", callback_data="help_back"
                     ),
                     InlineKeyboardButton(
-                        text="🔄 ᴄʟᴏsᴇ", callback_data="close"
+                        text="🔄 Close", callback_data="close"
                     ),
                 ],
             ]
