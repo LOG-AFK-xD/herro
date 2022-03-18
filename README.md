@@ -1,70 +1,70 @@
-<h4 align="center">
-    ᴀ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴜsɪᴄ+ᴠɪᴅᴇᴏ ʙᴏᴛ ᴡʀɪᴛᴛᴇɴ ɪɴ ᴘʏᴛʜᴏɴ ᴜsɪɴɢ ᴘʏʀᴏɢʀᴀᴍ ᴀɴᴅ ᴘʏ-ᴛɢᴄᴀʟʟs 
-</h4>
-<p align="center">
-    <a href="https://t.me/QueenAlishaRobot"> ʀᴇᴀᴅʏ-ᴛᴏ-ᴜsᴇ ʙᴏᴛ </a> •
-    <a href="https://t.me/Pubglovers_Shayri_lovers"> sᴜᴘᴘᴏʀᴛ ᴄʜᴀɴɴᴇʟ </a> •
-    <a href="https://t.me/AlishaSupport"> sᴜᴘᴘᴏʀᴛ ᴄʜᴀᴛ </a> 
-</p>
+<H4 ALIGN="CENTER">
+    ᴀ ᴛᴇʟᴇɢƦᴀᴍ ᴍᴜSꞮᴄ+ᴠꞮᴅᴇᴏ ʙᴏᴛ ᴡƦꞮᴛᴛᴇɴ Ɪɴ ᴘʏᴛʜᴏɴ ᴜSꞮɴɢ ᴘʏƦᴏɢƦᴀᴍ ᴀɴᴅ ᴘʏ-ᴛɢᴄᴀʟʟS 
+</H4>
+<P ALIGN="CENTER">
+    <A HREF="HTTPS://T.ME/QUEENALISHAROBOT"> Ʀᴇᴀᴅʏ-ᴛᴏ-ᴜSᴇ ʙᴏᴛ </A> •
+    <A HREF="HTTPS://T.ME/PUBGLOVERS_SHAYRI_LOVERS"> SᴜᴘᴘᴏƦᴛ ᴄʜᴀɴɴᴇʟ </A> •
+    <A HREF="HTTPS://T.ME/ALISHASUPPORT"> SᴜᴘᴘᴏƦᴛ ᴄʜᴀᴛ </A> 
+</P>
     
-# ᴀʟɪꜱʜᴀ ᴍᴜsɪᴄ ʙᴏᴛ
+# ᴀʟꞮꜱʜᴀ ᴍᴜSꞮᴄ ʙᴏᴛ
 
-ᴀ ᴘᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴜsɪᴄ+ᴠɪᴅᴇᴏ ʙᴏᴛ ʙʏ ᴡʜɪᴄʜ ʏᴏᴜ ᴄᴀɴ sᴛʀᴇᴀᴍ sᴏɴɢs, ᴠɪᴅᴇᴏs ᴀɴᴅ ᴇᴠᴇɴ ʟɪᴠᴇ sᴛʀᴇᴀᴍs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴄᴀʟʟs ᴠɪᴀ ᴠᴀʀɪᴏᴜs sᴏᴜʀᴄᴇs. ɪᴛ ᴄᴏᴍᴇs ᴡɪᴛʜ  ᴜsᴇʀ ғʀɪᴇɴᴅʟʏ ᴀɴᴅ ᴇᴀsʏ ᴛᴏ ᴜsᴇ ʏᴇᴛ ᴇʟᴇɢᴀɴᴛ ғᴇᴀᴛᴜʀᴇs.
+ᴀ ᴘᴏᴡᴇƦҒᴜʟ ᴛᴇʟᴇɢƦᴀᴍ ᴍᴜSꞮᴄ+ᴠꞮᴅᴇᴏ ʙᴏᴛ ʙʏ ᴡʜꞮᴄʜ ʏᴏᴜ ᴄᴀɴ SᴛƦᴇᴀᴍ SᴏɴɢS, ᴠꞮᴅᴇᴏS ᴀɴᴅ ᴇᴠᴇɴ ʟꞮᴠᴇ SᴛƦᴇᴀᴍS Ɪɴ ʏᴏᴜƦ ɢƦᴏᴜᴘ ᴄᴀʟʟS ᴠꞮᴀ ᴠᴀƦꞮᴏᴜS SᴏᴜƦᴄᴇS. Ɪᴛ ᴄᴏᴍᴇS ᴡꞮᴛʜ  ᴜSᴇƦ ҒƦꞮᴇɴᴅʟʏ ᴀɴᴅ ᴇᴀSʏ ᴛᴏ ᴜSᴇ ʏᴇᴛ ᴇʟᴇɢᴀɴᴛ ҒᴇᴀᴛᴜƦᴇS.
 
 # ᴅᴇᴘʟᴏʏᴍᴇɴᴛ
 
 
-<details>
-<summary><b>ʀᴇǫᴜɪʀᴇᴍᴇɴᴛs</b></summary>
-<br>
+<DETAILS>
+<SUMMARY><B>ƦᴇǪᴜꞮƦᴇᴍᴇɴᴛS</B></SUMMARY>
+<BR>
     
-- [ᴘʏᴛʜᴏɴ𝟹.𝟿](https://www.python.org/downloads/release/python-390/)
-- [ᴛᴇʟᴇɢʀᴀᴍ ᴀᴘɪ ᴋᴇʏ](https://docs.pyrogram.org/intro/setup#api-keys)
-- [ᴛᴇʟᴇɢʀᴀᴍ ʙᴏᴛ ᴛᴏᴋᴇɴ](https://t.me/botfather)
-- [ᴍᴏɴɢᴏᴅʙ URI](https://telegra.ph/How-To-get-Mongodb-URI-04-06)
-- [sᴛʀɪɴɢ sᴇssɪᴏɴ](https://t.me/StringGeneratorRobot)
+- [ᴘʏᴛʜᴏɴ𝟹.𝟿](HTTPS://WWW.PYTHON.ORG/DOWNLOADS/RELEASE/PYTHON-390/)
+- [ᴛᴇʟᴇɢƦᴀᴍ ᴀᴘꞮ ᴋᴇʏ](HTTPS://DOCS.PYROGRAM.ORG/INTRO/SETUP#API-KEYS)
+- [ᴛᴇʟᴇɢƦᴀᴍ ʙᴏᴛ ᴛᴏᴋᴇɴ](HTTPS://T.ME/BOTFATHER)
+- [ᴍᴏɴɢᴏᴅʙ URI](HTTPS://TELEGRA.PH/HOW-TO-GET-MONGODB-URI-04-06)
+- [SᴛƦꞮɴɢ SᴇSSꞮᴏɴ](HTTPS://T.ME/STRINGGENERATORROBOT)
     
-</details>
+</DETAILS>
 
-<details>
-<summary><b>sᴛʀɪɴɢ sᴇssɪᴏɴ</b></summary>
-<br>
+<DETAILS>
+<SUMMARY><B>SᴛƦꞮɴɢ SᴇSSꞮᴏɴ</B></SUMMARY>
+<BR>
     
-> ʏᴏᴜ'ʟʟ ɴᴇᴇᴅ ᴀ ᴀᴘɪ_ɪᴅ & ᴀᴘɪ_ʜᴀsʜ ɪɴ ᴏʀᴅᴇʀ ᴛᴏ ɢᴇɴᴇʀᴀᴛᴇ ᴘʏʀᴏɢʀᴀᴍ sᴇssɪᴏɴ. 
-> ᴀʟᴡᴀʏs ʀᴇᴍᴇʙᴇʀ ᴛᴏ ᴜsᴇ ɢᴏᴏᴅ ᴀᴘɪ ᴄᴏᴍʙᴏ ᴇʟsᴇ ʏᴏᴜʀ ᴀᴄᴄᴏᴜɴᴛ ᴄᴏᴜʟᴅ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ.
+> ʏᴏᴜ'ʟʟ ɴᴇᴇᴅ ᴀ ᴀᴘꞮ_Ɪᴅ & ᴀᴘꞮ_ʜᴀSʜ Ɪɴ ᴏƦᴅᴇƦ ᴛᴏ ɢᴇɴᴇƦᴀᴛᴇ ᴘʏƦᴏɢƦᴀᴍ SᴇSSꞮᴏɴ. 
+> ᴀʟᴡᴀʏS ƦᴇᴍᴇʙᴇƦ ᴛᴏ ᴜSᴇ ɢᴏᴏᴅ ᴀᴘꞮ ᴄᴏᴍʙᴏ ᴇʟSᴇ ʏᴏᴜƦ ᴀᴄᴄᴏᴜɴᴛ ᴄᴏᴜʟᴅ ʙᴇ ᴅᴇʟᴇᴛᴇᴅ.
 
-<h4> ɢᴇɴᴇʀᴀᴛᴇ sᴇssɪᴏɴ ᴠɪᴀ ʀᴇᴘʟ: </h4>    
-<p><a href="https://replit.com/@NotReallyShikhar/Yukki-Music-String-Gen"><img src="https://img.shields.io/badge/Generate%20On%20Repl-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
+<H4> ɢᴇɴᴇƦᴀᴛᴇ SᴇSSꞮᴏɴ ᴠꞮᴀ Ʀᴇᴘʟ: </H4>    
+<P><A HREF="HTTPS://REPLIT.COM/@NOTREALLYSHIKHAR/YUKKI-MUSIC-STRING-GEN"><IMG SRC="HTTPS://IMG.SHIELDS.IO/BADGE/GENERATE%20ON%20REPL-BLUEVIOLET?STYLE=FOR-THE-BADGE&LOGO=APPVEYOR" WIDTH="200""/></A></P>
 
-<h4> ɢᴇɴᴇʀᴀᴛᴇ sᴇssɪᴏɴ ᴠɪᴀ ᴛᴇʟᴇɢʀᴀᴍ sᴛʀɪɴɢ-ɢᴇɴ ʙᴏᴛ: </h4>    
-<p><a href="https://t.me/StringGeneratorRobot"><img src="https://img.shields.io/badge/TG%20String%20Gen%20Bot-blueviolet?style=for-the-badge&logo=appveyor" width="200""/></a></p>
+<H4> ɢᴇɴᴇƦᴀᴛᴇ SᴇSSꞮᴏɴ ᴠꞮᴀ ᴛᴇʟᴇɢƦᴀᴍ SᴛƦꞮɴɢ-ɢᴇɴ ʙᴏᴛ: </H4>    
+<P><A HREF="HTTPS://T.ME/STRINGGENERATORROBOT"><IMG SRC="HTTPS://IMG.SHIELDS.IO/BADGE/TG%20STRING%20GEN%20BOT-BLUEVIOLET?STYLE=FOR-THE-BADGE&LOGO=APPVEYOR" WIDTH="200""/></A></P>
     
-</details>
+</DETAILS>
 
-<details>
-<summary><b>ᴅᴇᴘʟᴏʏ ᴛᴏ ʜᴇʀᴏᴋᴜ</b></summary>
-<br>
+<DETAILS>
+<SUMMARY><B>ᴅᴇᴘʟᴏʏ ᴛᴏ ʜᴇƦᴏᴋᴜ</B></SUMMARY>
+<BR>
 
-> ʜᴇʀᴏᴋᴜ ʜᴀs ᴛᴡᴏ ᴠᴀʀs[ ʜᴇʀᴏᴋᴜ_ᴀᴘɪ_ᴋᴇʏ & ʜᴇʀᴏᴋᴜ_ᴀᴘᴘ_ɴᴀᴍᴇ ] ғᴏʀ ᴜᴘᴅᴀᴛᴇʀ ᴛᴏ ᴡᴏʀᴋ. 
-> ʙʏ sᴇᴛᴛɪɴɢ ᴛʜᴏsᴇ ᴛᴡᴏ ᴠᴀʀs ʏᴏᴜ ᴄᴀɴ ɢᴇᴛ ʟᴏɢs ᴏғ ʏᴏᴜʀ ʜᴇʀᴏᴋᴜ ᴀᴘᴘ, sᴇᴛ ᴠᴀʀ, ᴇᴅɪᴛ ᴠᴀʀ, ᴅᴇʟᴇᴛᴇ ᴠᴀʀs , ᴄʜᴇᴄᴋ ᴅʏɴᴏ ᴜsᴀɢᴇ ᴀɴᴅ ᴜᴘᴅᴀᴛᴇ ʙᴏᴛ. 
-> ᴛʜᴏsᴇ ᴛᴡᴏ ᴠᴀʀs ᴀʀᴇ ɴᴏᴛ ᴍᴀɴᴅᴀᴛᴏʀʏ, ʏᴏᴜ ᴄᴀɴ ʟᴇᴀᴠᴇ ᴛʜᴇᴍ ʙʟᴀɴᴋ ᴛᴏᴏ. 
+> ʜᴇƦᴏᴋᴜ ʜᴀS ᴛᴡᴏ ᴠᴀƦS[ ʜᴇƦᴏᴋᴜ_ᴀᴘꞮ_ᴋᴇʏ & ʜᴇƦᴏᴋᴜ_ᴀᴘᴘ_ɴᴀᴍᴇ ] ҒᴏƦ ᴜᴘᴅᴀᴛᴇƦ ᴛᴏ ᴡᴏƦᴋ. 
+> ʙʏ SᴇᴛᴛꞮɴɢ ᴛʜᴏSᴇ ᴛᴡᴏ ᴠᴀƦS ʏᴏᴜ ᴄᴀɴ ɢᴇᴛ ʟᴏɢS ᴏҒ ʏᴏᴜƦ ʜᴇƦᴏᴋᴜ ᴀᴘᴘ, Sᴇᴛ ᴠᴀƦ, ᴇᴅꞮᴛ ᴠᴀƦ, ᴅᴇʟᴇᴛᴇ ᴠᴀƦS , ᴄʜᴇᴄᴋ ᴅʏɴᴏ ᴜSᴀɢᴇ ᴀɴᴅ ᴜᴘᴅᴀᴛᴇ ʙᴏᴛ. 
+> ᴛʜᴏSᴇ ᴛᴡᴏ ᴠᴀƦS ᴀƦᴇ ɴᴏᴛ ᴍᴀɴᴅᴀᴛᴏƦʏ, ʏᴏᴜ ᴄᴀɴ ʟᴇᴀᴠᴇ ᴛʜᴇᴍ ʙʟᴀɴᴋ ᴛᴏᴏ. 
     
-<h4> ᴄʟɪᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ᴅᴇᴘʟᴏʏ ʏᴜᴋᴋɪ ᴏɴ ʜᴇʀᴏᴋᴜ</h4>    
-<p><a href="https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2FCandyMusic%2FHero"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-red?style=for-the-badge&logo=heroku" width="200"/></a></p>
+<H4> ᴄʟꞮᴄᴋ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴛᴏ ᴅᴇᴘʟᴏʏ ʏᴜᴋᴋꞮ ᴏɴ ʜᴇƦᴏᴋᴜ</H4>    
+<P><A HREF="HTTPS://DASHBOARD.HEROKU.COM/NEW?TEMPLATE=HTTPS%3A%2F%2FGITHUB.COM%2FCANDYMUSIC%2FHERO"><IMG SRC="HTTPS://IMG.SHIELDS.IO/BADGE/DEPLOY%20TO%20HEROKU-RED?STYLE=FOR-THE-BADGE&LOGO=HEROKU" WIDTH="200"/></A></P>
     
-</details>
+</DETAILS>
 
 
-## sᴘᴇᴄɪᴀʟ ᴄʀᴇᴅɪᴛ
+## SᴘᴇᴄꞮᴀʟ ᴄƦᴇᴅꞮᴛ
 
-[Abhimanyu](https://t.me/Itz_Venom_xD) 
+[ABHIMANYU](HTTPS://T.ME/ITZ_VENOM_XD) 
 
-## ᴀᴄᴋɴᴏᴡʟᴇᴅɢᴇᴍᴇɴᴛs
+## ᴀᴄᴋɴᴏᴡʟᴇᴅɢᴇᴍᴇɴᴛS
 
-sᴘᴇᴄɪᴀʟ ᴛʜᴀɴᴋs ᴛᴏ ᴛʜᴇsᴇ ᴀᴍᴀᴢɪɴɢ ᴘʀᴏᴊᴇᴄᴛs/ᴘᴇᴏᴘʟᴇ ᴡʜɪᴄʜ/ᴡʜᴏ ʜᴇʟᴘᴇᴅ ʜᴇʀᴏ ᴍᴜsɪᴄs ʙᴏᴛ:
+SᴘᴇᴄꞮᴀʟ ᴛʜᴀɴᴋS ᴛᴏ ᴛʜᴇSᴇ ᴀᴍᴀᴢꞮɴɢ ᴘƦᴏᴊᴇᴄᴛS/ᴘᴇᴏᴘʟᴇ ᴡʜꞮᴄʜ/ᴡʜᴏ ʜᴇʟᴘᴇᴅ ʜᴇƦᴏ ᴍᴜSꞮᴄS ʙᴏᴛ:
 
-- [Pyrogram](https://github.com/pyrogram/pyrogram)
-- [Py-Tgcalls](https://github.com/pytgcalls/pytgcalls)
-- [CallsMusic Team](https://github.com/Callsmusic)
-- [TheHamkerCat](https://github.com/TheHamkerCat)
-- [Charon Baglari](https://github.com/XCBv021)
+- [PYROGRAM](HTTPS://GITHUB.COM/PYROGRAM/PYROGRAM)
+- [PY-TGCALLS](HTTPS://GITHUB.COM/PYTGCALLS/PYTGCALLS)
+- [CALLSMUSIC TEAM](HTTPS://GITHUB.COM/CALLSMUSIC)
+- [THEHAMKERCAT](HTTPS://GITHUB.COM/THEHAMKERCAT)
+- [CHARON BAGLARI](HTTPS://GITHUB.COM/XCBV021)
