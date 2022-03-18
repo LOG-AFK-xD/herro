@@ -253,7 +253,7 @@ async def initiate_bot():
             await install_requirements(
                 "pip3 install --no-cache-dir -r requirements.txt"
             )
-            console.print("└ [red]ɢɪᴛ ᴄʟɪᴇɴᴛ ᴜᴘᴅᴀᴛᴇ ᴄᴏᴍᴘʟᴇᴛᴇᴅ\n")
+            console.print("└ [red]Git Client Update Complete\n")
 
 
 loop.run_until_complete(initiate_bot())
