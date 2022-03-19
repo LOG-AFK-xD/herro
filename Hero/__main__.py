@@ -227,11 +227,13 @@ async def initiate_bot():
         await pytgcalls5.start()
     await idle()
     console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
-home_text_pm = f"""Hello ,
-My name is {BOT_NAME}.
-I'm Telegram Voice Chat Audio with some useful features.
 
-All commands can be used with: / """
+
+home_text_pm = f"""ʜᴇʟʟᴏ ,
+ᴍʏ ɴᴀᴍᴇ ɪs {BOT_NAME}.
+ᴀ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴜsɪᴄ+ᴠɪᴅᴇᴏ sᴛʀᴇᴀᴍɪɴɢ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
+
+ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ: / """
 
 
 @app.on_message(filters.command("help") & filters.private)
@@ -240,28 +242,53 @@ async def help_command(_, message):
     await app.send_message(message.chat.id, text, reply_markup=keyboard)
 
 
-@app.on_message(filters.command("start") & filters.private)
+@app.on_message(filters.command("Hero") & filters.private)
 async def start_command(_, message):
     if len(message.text.split()) > 1:
         name = (message.text.split(None, 1)[1]).lower()
         if name[0] == "s":
             sudoers = await get_sudoers()
-            text = "**__Sudo Users List of Bot:-__**\n\n"
-            j = 0
-            for count, user_id in enumerate(sudoers, 1):
+            text = "⭐️<u> **Owners:**</u>\n"
+            sex = 0
+            for x in OWNER_ID:
                 try:
-                    user = await app.get_users(user_id)
+                    user = await app.get_users(x)
                     user = (
                         user.first_name if not user.mention else user.mention
                     )
+                    sex += 1
                 except Exception:
                     continue
-                text += f"➤ {user}\n"
-                j += 1
-            if j == 0:
-                await message.reply_text("No Sudo Users")
+                text += f"{sex}➤ {user}\n"
+            smex = 0
+            for count, user_id in enumerate(sudoers, 1):
+                if user_id not in OWNER_ID:
+                    try:
+                        user = await app.get_users(user_id)
+                        user = (
+                            user.first_name
+                            if not user.mention
+                            else user.mention
+                        )
+                        if smex == 0:
+                            smex += 1
+                            text += "\n⭐️<u> **Sudo Users:**</u>\n"
+                        sex += 1
+                        text += f"{sex}➤ {user}\n"
+                    except Exception:
+                        continue
+            if not text:
+                await message.reply_text("ɴᴏ sᴜᴅᴏ ᴜsᴇʀs")
             else:
                 await message.reply_text(text)
+            if await is_on_off(5):
+                sender_id = message.from_user.id
+                sender_name = message.from_user.first_name
+                umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
+                return await LOG_CLIENT.send_message(
+                    LOG_GROUP_ID,
+                    f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <code>sᴜᴅᴏʟɪsᴛ</code>\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
+                )
         if name == "help":
             text, keyboard = await help_parser(message.from_user.mention)
             await message.delete()
@@ -285,54 +312,71 @@ async def start_command(_, message):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-🔍__**Video Track Information**__
+🔍__**ᴠɪᴅᴇᴏ ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ**__
 
-❇️**Title:** {title}
+❇️**ᴛɪᴛʟᴇ:** {title}
 
-⏳**Duration:** {duration} Mins
-👀**Views:** `{views}`
-⏰**Published Time:** {published}
-🎥**Channel Name:** {channel}
-📎**Channel Link:** [Visit From Here]({channellink})
-🔗**Video Link:** [Link]({link})
+⏳**ᴅᴜʀᴀᴛɪᴏɴ:** {duration} Mins
+👀**ᴠɪᴇᴡs:** `{views}`
+⏰**ᴘᴜʙʟɪsʜᴇᴅ ᴛɪᴍᴇ:** {published}
+🎥**ᴄʜᴀɴɴᴇʟ ɴᴀᴍᴇ:** {channel}
+📎**ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ:** [Visit From Here]({channellink})
+🔗**ᴠɪᴅᴇᴏ ʟɪɴᴋ:** [Link]({link})
 
-⚡️ __Searched Powered By {BOT_NAME}t__"""
+⚡️ __sᴇᴀʀᴄʜᴇᴅ ᴘᴏᴡᴇʀᴇᴅ ʙʏ {BOT_NAME}__"""
             key = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="🎥 Watch Youtube Video", url=f"{link}"
+                            text="🎥 ᴡᴀᴛᴄʜ ʏᴏᴜᴛᴜʙᴇ ᴠɪᴅᴇᴏ", url=f"{link}"
                         ),
                         InlineKeyboardButton(
-                            text="🔄 Close", callback_data="close"
+                            text="🔄 ᴄʟᴏsᴇ", callback_data="close"
                         ),
                     ],
                 ]
             )
             await m.delete()
-            return await app.send_photo(
+            await app.send_photo(
                 message.chat.id,
                 photo=thumbnail,
                 caption=searched_text,
                 parse_mode="markdown",
                 reply_markup=key,
             )
+            if await is_on_off(5):
+                sender_id = message.from_user.id
+                sender_name = message.from_user.first_name
+                umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
+                return await LOG_CLIENT.send_message(
+                    LOG_GROUP_ID,
+                    f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <code>ᴠɪᴅᴇᴏ ɪɴғᴏʀᴍᴀᴛɪᴏɴ</code>\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
+                )
+            return
     out = private_panel()
-    return await message.reply_text(
+    await message.reply_text(
         home_text_pm,
         reply_markup=InlineKeyboardMarkup(out[1]),
     )
+    if await is_on_off(5):
+        sender_id = message.from_user.id
+        sender_name = message.from_user.first_name
+        umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
+        return await LOG_CLIENT.send_message(
+            LOG_GROUP_ID,
+            f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ.\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
+        )
+    return
 
 
 async def help_parser(name, keyboard=None):
     if not keyboard:
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     return (
-        """Hello {first_name},
+        """ʜᴇʟʟᴏ {first_name},
+ɪ ᴀᴍ ᴀ ᴍᴜsɪᴄ ʙᴏᴛ, ɪ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜsɪᴄ ɪɴ ʏᴏᴜʀ ᴠᴏɪᴄᴇ ᴄʜᴀᴛ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ.
 
-Click on the buttons for more information.
-
-All commands can be used with: /
+ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ: `/`
 """.format(
             first_name=name
         ),
@@ -354,11 +398,11 @@ async def help_button(client, query):
     next_match = re.match(r"help_next\((.+?)\)", query.data)
     back_match = re.match(r"help_back", query.data)
     create_match = re.match(r"help_create", query.data)
-    top_text = f"""Hello {query.from_user.first_name},
+    top_text = f"""ʜᴇʟʟᴏ {query.from_user.first_name},
 
-Click on the buttons for more information.
+ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ.
 
-All commands can be used with: /
+ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ: /
  """
     if mod_match:
         module = mod_match.group(1)
@@ -372,10 +416,10 @@ All commands can be used with: /
             [
                 [
                     InlineKeyboardButton(
-                        text="↪️ Back", callback_data="help_back"
+                        text="↪️ ʙᴀᴄᴋ", callback_data="help_back"
                     ),
                     InlineKeyboardButton(
-                        text="🔄 Close", callback_data="close"
+                        text="🔄 ᴄʟᴏsᴇ", callback_data="close"
                     ),
                 ],
             ]
