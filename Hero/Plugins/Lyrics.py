@@ -8,14 +8,14 @@ from youtubesearchpython import VideosSearch
 
 from Hero import MUSIC_BOT_NAME, app
 
-__MODULE__ = "ʟʏʀɪᴄs"
+__MODULE__ = "Lyrics"
 __HELP__ = """
 
-/Lyrics [ᴍᴜsɪᴄ ɴᴀᴍᴇ]
-- sᴇᴀʀᴄʜᴇs ʟʏʀɪᴄs ғᴏʀ ᴛʜᴇ ᴘᴀʀᴛɪᴄᴜʟᴀʀ ᴍᴜsɪᴄ ᴏɴ ᴡᴇʙ.
+/Lyrics [Music Name]
+- Searching Lyrics for The Particular Music on web.
 
-**ɴᴏᴛᴇ**:
-ɪɴʟɪɴᴇ ʙᴜᴛᴛᴏɴ ᴏғ ʟʏʀɪᴄs ʜᴀs sᴏᴍᴇ ʙᴜɢs. sᴇᴀʀᴄʜᴇs ᴏɴʟʏ 50% ʀᴇsᴜʟᴛs. ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴄᴏᴍᴍᴀɴᴅ ɪɴsᴛᴇᴀᴅ ɪғ ʏᴏᴜ ᴡᴀɴᴛ ʟʏʀɪᴄs ғᴏʀ ᴀɴʏ ᴘʟᴀʏɪɴɢ ᴍᴜsɪᴄ.
+**Note**:
+Inline Button Of Lyrics Has Some Bugs. Searching Only 50% Result. You Can Use Command instead of You Want Lyrics For Any Playing Musíc.
 
 """
 
@@ -28,7 +28,7 @@ async def lyricssex(_, CallbackQuery):
         id, user_id = callback_request.split("|")
     except Exception as e:
         return await CallbackQuery.message.edit(
-            f"ᴇʀʀᴏʀ ᴏᴄᴄᴜʀᴇᴅ\n**ᴘᴏssɪʙʟᴇ ʀᴇᴀsᴏɴ ᴄᴏᴜʟᴅ ʙᴇ**:{e}"
+            f"Error Occured\n**Possible reason Could Be**:{e}"
         )
     url = f"https://www.youtube.com/watch?v={id}"
     print(url)
@@ -38,7 +38,7 @@ async def lyricssex(_, CallbackQuery):
             title = result["title"]
     except Exception as e:
         return await CallbackQuery.answer(
-            "sᴏᴜɴᴅ ɴᴏᴛ ғᴏᴜɴᴅ ʏᴏᴜᴛᴜʙᴇ ɪssᴜᴇs...", show_alert=True
+            "Sound Not Found Youtube Issues...", show_alert=True
         )
     x = "OXaVabSRKQLqwpiYOn-E4Y7k3wj-TNdL5RfDPXlnXhCErbcqVvdCF-WnMR5TBctI"
     y = lyricsgenius.Genius(x)
@@ -47,21 +47,21 @@ async def lyricssex(_, CallbackQuery):
     S = y.search_song(t, get_full_info=False)
     if S is None:
         return await CallbackQuery.answer(
-            "ʟʏʀɪᴄs ɴᴏᴛ ғᴏᴜɴᴅ...", show_alert=True
+            "Lyrics Not Found...", show_alert=True
         )
     await CallbackQuery.message.delete()
     userid = CallbackQuery.from_user.id
     usr = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
     xxx = f"""
-**ʟʏʀɪᴄs sᴇᴀʀᴄʜ ᴘᴏᴡᴇʀᴇᴅ ʙʏ {MUSIC_BOT_NAME}**
+**Lyrics Searched Powered By {MUSIC_BOT_NAME}**
 
-**sᴇᴀʀᴄʜᴇᴅ ʙʏ:-** {usr}
-**sᴇᴀʀᴄʜᴇᴅ sᴏɴɢ:-** __{title}__
+**Searching By:-** {usr}
+**Searching Song:-** __{title}__
 
-**ғᴏᴜɴᴅ ʟʏʀɪᴄs ғᴏʀ:-** __{S.title}__
-**ᴀʀᴛɪsᴛ:-** {S.artist}
+**Found Lyrics For:-** __{S.title}__
+**Artist:-** {S.artist}
 
-**__ʟʏʀɪᴄs:__**
+**__Lyrics:__**
 
 {S.lyrics}"""
     if len(xxx) > 4096:
@@ -70,7 +70,7 @@ async def lyricssex(_, CallbackQuery):
             out_file.write(str(xxx.strip()))
         await CallbackQuery.message.reply_document(
             document=filename,
-            caption=f"**ᴏᴜᴛᴘᴜᴛ:**\n\n`Lyrics`",
+            caption=f"**Output:**\n\n`Lyrics`",
             quote=False,
         )
         os.remove(filename)
@@ -89,15 +89,15 @@ async def lrsearch(_, message: Message):
     y.verbose = False
     S = y.search_song(query, get_full_info=False)
     if S is None:
-        return await m.edit("ʟʏʀɪᴄs ɴᴏᴛ ғᴏᴜɴᴅ...")
+        return await m.edit("Lyrics Not found...")
     xxx = f"""
-**ʟʏʀɪᴄs sᴇᴀʀᴄʜ ᴘᴏᴡᴇʀᴇᴅ ʙʏ {MUSIC_BOT_NAME}**
+**Lyrics Searched Powered by {MUSIC_BOT_NAME}**
 
-**sᴇᴀʀᴄʜᴇᴅ sᴏɴɢ:-** __{query}__
-**ғᴏᴜɴᴅ ʟʏʀɪᴄs ғᴏʀ:-** __{S.title}__
-**ᴀʀᴛɪsᴛ:-** {S.artist}
+**Searching Song:-** __{query}__
+**Found Lyrics For:-** __{S.title}__
+**Artist:-** {S.artist}
 
-**__ʟʏʀɪᴄs:__**
+**__Lyrics:__**
 
 {S.lyrics}"""
     if len(xxx) > 4096:
@@ -107,7 +107,7 @@ async def lrsearch(_, message: Message):
             out_file.write(str(xxx.strip()))
         await message.reply_document(
             document=filename,
-            caption=f"**ᴏᴜᴛᴘᴜᴛ:**\n\n`Lyrics`",
+            caption=f"**Output:**\n\n`Lyrics`",
             quote=False,
         )
         os.remove(filename)
