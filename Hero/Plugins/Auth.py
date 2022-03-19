@@ -9,21 +9,21 @@ from Hero.Decorators.admins import AdminActual
 from Hero.Utilities.changers import (alpha_to_int, int_to_alpha,
                                       time_to_seconds)
 
-__MODULE__ = "ᴀᴜᴛʜ ᴜsᴇʀs"
+__MODULE__ = "Auth Users"
 __HELP__ = """
 
-**ɴᴏᴛᴇ:**
--ᴀᴜᴛʜ ᴜsᴇʀs ᴄᴀɴ sᴋɪᴘ, ᴘᴀᴜsᴇ, sᴛᴏᴘ, ʀᴇsᴜᴍᴇ ᴠᴏɪᴄᴇ ᴄʜᴀᴛs ᴇᴠᴇɴ ᴡɪᴛʜᴏᴜᴛ ᴀᴅᴍɪɴ ʀɪɢʜᴛs...
+**Note:**
+-Auth users can skip, pause, stop, resume Voice Chats even without Admin Rights.
 
 
-`/auth` [ᴜsᴇʀɴᴀᴍᴇ ᴏʀ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ] 
-- ᴀᴅᴅ ᴀ ᴜsᴇʀ ᴛᴏ ᴀᴜᴛʜ ʟɪsᴛ ᴏғ ᴛʜᴇ ɢʀᴏᴜᴘ.
+/auth [Username or Reply to a Message] 
+- Add a user to AUTH LIST of the group.
 
-`/unauth` [ᴜsᴇʀɴᴀᴍᴇ ᴏʀ ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ] 
-- ʀᴇᴍᴏᴠᴇ ᴀ ᴜsᴇʀ ғʀᴏᴍ ᴀᴜᴛʜ ʟɪsᴛ ᴏғ ᴛʜᴇ ɢʀᴏᴜᴘ.
+/unauth [Username or Reply to a Message] 
+- Remove a user from AUTH LIST of the group.
 
-`/authusers` 
-- ᴄʜᴇᴄᴋ ᴀᴜᴛʜ ʟɪsᴛ ᴏғ ᴛʜᴇ ɢʀᴏᴜᴘ.
+/authusers 
+- Check AUTH LIST of the group.
 """
 
 
@@ -33,7 +33,7 @@ async def auth(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             await message.reply_text(
-                "ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ ᴜsᴇʀɴᴀᴍᴇ/ᴜsᴇʀ ɪᴅ."
+                "Reply to a user's message or give username/user_id."
             )
             return
         user = message.text.split(None, 1)[1]
@@ -50,7 +50,7 @@ async def auth(_, message: Message):
             count += 1
         if int(count) == 20:
             return await message.reply_text(
-                "ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ʜᴀᴠᴇ 20 ᴜsᴇʀs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘs ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ʟɪsᴛ (ᴀᴜʟ)"
+                "You can only have 20 Users In Your Groups Authorised Users List (AUL)"
             )
         if token not in _check:
             assis = {
@@ -61,11 +61,11 @@ async def auth(_, message: Message):
             }
             await save_authuser(message.chat.id, token, assis)
             await message.reply_text(
-                f"ᴀᴅᴅᴇᴅ ᴛᴏ ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ʟɪsᴛ ᴏғ ᴛʜɪs ɢʀᴏᴜᴘ..."
+                f"Added to Authorised Users List of this group."
             )
             return
         else:
-            await message.reply_text(f"ᴀʟʀᴇᴀᴅʏ ɪɴ ᴛʜᴇ ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ʟɪsᴛ...")
+            await message.reply_text(f"Already in the Authorised Users List.")
         return
     from_user_id = message.from_user.id
     user_id = message.reply_to_message.from_user.id
@@ -78,7 +78,7 @@ async def auth(_, message: Message):
         count += 1
     if int(count) == 20:
         return await message.reply_text(
-            "ʏᴏᴜ ᴄᴀɴ ᴏɴʟʏ ʜᴀᴠᴇ 20 ᴜsᴇʀs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘs ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ʟɪsᴛ (ᴀᴜʟ)"
+            "You can only have 20 Users In Your Groups Authorised Users List (AUL)"
         )
     if token not in _check:
         assis = {
@@ -89,11 +89,11 @@ async def auth(_, message: Message):
         }
         await save_authuser(message.chat.id, token, assis)
         await message.reply_text(
-            f"ᴀᴅᴅᴇᴅ ᴛᴏ ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ʟɪsᴛ ᴏғ ᴛʜɪs ɢʀᴏᴜᴘ..."
+            f"Added to Authorised Users List of this group."
         )
         return
     else:
-        await message.reply_text(f"ᴀʟʀᴇᴀᴅʏ ɪɴ ᴛʜᴇ ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ʟɪsᴛ...")
+        await message.reply_text(f"Already in the Authorised Users List.")
 
 
 @app.on_message(filters.command("unauth") & filters.group)
@@ -102,7 +102,7 @@ async def whitelist_chat_func(_, message: Message):
     if not message.reply_to_message:
         if len(message.command) != 2:
             await message.reply_text(
-                "ʀᴇᴘʟʏ ᴛᴏ ᴀ ᴜsᴇʀ's ᴍᴇssᴀɢᴇ ᴏʀ ɢɪᴠᴇ ᴜsᴇʀɴᴀᴍᴇ/ᴜsᴇʀ ɪᴅ"
+                "Reply to a user's message or give username/user_id."
             )
             return
         user = message.text.split(None, 1)[1]
@@ -113,19 +113,19 @@ async def whitelist_chat_func(_, message: Message):
         deleted = await delete_authuser(message.chat.id, token)
         if deleted:
             return await message.reply_text(
-                f"ʀᴇᴍᴏᴠᴇᴅ ғʀᴏᴍ ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ʟɪsᴛ ᴏғ ᴛʜɪs ɢʀᴏᴜᴘ..."
+                f"Removed from Authorised Users List of this Group."
             )
         else:
-            return await message.reply_text(f"ɴᴏᴛ ᴀɴ ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀ...")
+            return await message.reply_text(f"Not an Authorised User.")
     user_id = message.reply_to_message.from_user.id
     token = await int_to_alpha(user_id)
     deleted = await delete_authuser(message.chat.id, token)
     if deleted:
         return await message.reply_text(
-            f"ʀᴇᴍᴏᴠᴇᴅ ғʀᴏᴍ ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ʟɪsᴛ ᴏғ ᴛʜɪs ɢʀᴏᴜᴘ..."
+            f"Removed from Authorised Users List of this Group."
         )
     else:
-        return await message.reply_text(f"ɴᴏᴛ ᴀɴ ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀ...")
+        return await message.reply_text(f"Not an Authorised User.")
 
 
 @app.on_message(filters.command("authusers") & filters.group)
@@ -133,14 +133,14 @@ async def authusers(_, message: Message):
     _playlist = await get_authuser_names(message.chat.id)
     if not _playlist:
         return await message.reply_text(
-            f"ɴᴏ ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ɪɴ ᴛʜɪs ɢʀᴏᴜᴘ...\n\nᴀᴅᴅ ᴀᴜᴛʜ ᴜsᴇʀs ʙʏ /auth ᴀɴᴅ ʀᴇᴍᴏᴠᴇ ʙʏ /unauth."
+            f"No Authorised Users in this Group.\n\nAdd Auth users by /auth and remove by /unauth."
         )
     else:
         j = 0
         m = await message.reply_text(
-            "ғᴇᴛᴄʜɪɴɢ ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ᴘʟᴇᴀsᴇ ᴡᴀɪᴛ..."
+            "Fetching Authorised Users... Please Wait"
         )
-        msg = f"**ᴀᴜᴛʜᴏʀɪsᴇᴅ ᴜsᴇʀs ʟɪsᴛ[ᴀᴜʟ]:**\n\n"
+        msg = f"**Authorised Users List[AUL]:**\n\n"
         for note in _playlist:
             _note = await get_authuser(message.chat.id, note)
             user_id = _note["auth_user_id"]
@@ -154,5 +154,5 @@ async def authusers(_, message: Message):
             except Exception:
                 continue
             msg += f"{j}➤ {user}[`{user_id}`]\n"
-            msg += f"    ┗ ᴀᴅᴅᴇᴅ ʙʏ:- {admin_name}[`{admin_id}`]\n\n"
+            msg += f"    ┗ Added By:- {admin_name}[`{admin_id}`]\n\n"
         await m.edit_text(msg)
