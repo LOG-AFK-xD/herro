@@ -109,61 +109,42 @@ async def useradd(_, message: Message):
 async def useradd(_, message: Message):
     await message.reply_photo(
         photo=f"https://telegra.ph/file/46247f00eecfb587117c0.jpg",
-        caption=f"""**━━━━━━━━━━━━━━━━━━━━━━━━
-💥 ʜᴇʟʟᴏ, ɪ ᴀᴍ ᴀʟɪsʜᴀ sᴜᴘᴇʀ ғᴀsᴛ ᴠᴄ ᴘʟᴀʏᴇʀ
-ʙᴏᴛ ғᴏʀ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴘs🌼 ..
-┏━━━━━━━━━━━━━━━━━┓
-┣★ ᴋɪɴɢ    : [Aʙʜɪᴍᴀɴʏᴜ Rᴀɴᴀ](https://t.me/Itz_Venom_xD)
-┣★ ᴜᴘᴅᴀᴛᴇs : [Aʟɪsʜᴀ Sᴇʀᴠᴇʀ](https://t.me/AlishaSupport)
-┣★ sᴜᴘᴘᴏʀᴛ : [Aʟɪsʜᴀ Cʜᴀᴛ](https://t.me/Shayri_Music_Lovers)
-┣★ Qᴜᴇᴇɴ   : [Cᴀɴᴅʏ ǫᴜᴇᴇɴ](https://t.me/candy_626)
-┗━━━━━━━━━━━━━━━━━┛
-💞 ɪғ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ ǫᴜᴇsᴛɪᴏɴs ᴛʜᴇɴ
-ᴅᴍ ᴛᴏ ᴍʏ [ʟᴇɢᴇɴᴅ ᴏᴡɴᴇʀ](https://t.me/Itz_Venom_xD) ...
-━━━━━━━━━━━━━━━━━━━━━━━━**""",
-    reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "➕ ❰ ᴊᴏɪɴ ʜᴇʀᴇ ғᴏʀ ᴜᴘᴅᴀᴛᴇs ❱ ➕", url=f"https://t.me/AlishaSupport")
-                ]
-                
-           ]
-        ),
-    )
-    
-    
-@app.on_message(filters.command(["alive", "Candy"]) & filters.group & ~filters.edited)
-async def useradd(_, message: Message):
-    await message.reply_photo(
-        photo=f"https://telegra.ph/file/de138de8fd880becb9cf1.jpg",
-        caption=f"""""",
+        f"""**Hello, My name is Happy Musíc Bot.\n\nI'm a telegram streaming bot with some useful features. Supporting platforms like Youtube, Spotify, Resso, AppleMusic , Soundcloud etc.\n\nFeel free to add me to your groups.**
+""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "💥 ᴊᴏɪɴ ʜᴇʀᴇ ᴀɴᴅ sᴜᴘᴘᴏʀᴛ 💞", url=f"https://t.me/Shayri_Music_Lovers")
-                ]
-            ]
-        ),
-    )
-
-
-@app.on_message(filters.command(["repo", "#repo", "@repo", "/repo", "source"]) & filters.group & ~filters.edited)
-async def useradd(_, message: Message):
-    await message.reply_photo(
-        photo=f"https://telegra.ph/file/de138de8fd880becb9cf1.jpg",
-        caption=f"""""",
-        reply_markup=InlineKeyboardMarkup(
-            [
+                        "🔎 How to Use? Commands Menu.",
+                        callback_data="cbcmds",
+                    )
+                ], 
+                [            
+                    InlineKeyboardButton("📨 Support", url=f"https://t.me/TheMafiaSupport"),
+                    InlineKeyboardButton("📨 Channel", url=f"https://t.me/TheMafiaNetwork"),               
+                ],
                 [
                     InlineKeyboardButton(
-                        "💥 ᴄʟɪᴄᴋ ᴍᴇ ᴛᴏ ɢᴇᴛ ʀᴇᴘᴏ 💞", url=f"https://github.com/CandyMusic/Hero")
-                ]
+                        "✚ Add me to your Group", url=f"https://t.me/Happy_ro_bot?startgroup=true"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "👤 Bot Owner", url=f"https://t.me/OFFICIAL_AFK_xD"
+                    ),
+                    InlineKeyboardButton(
+                        "💡 About Me", url=f"https://t.me/iTzz_Official"                  
+                    ),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "✳️ Chichat ", url=f"https://t.me/UNIQUE_SOCIETY")
+
+              ],
             ]
         ),
     )
 
+    
 
 @app.on_message(filters.command("settings") & filters.group)
 async def settings(_, message: Message):
