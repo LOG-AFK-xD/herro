@@ -396,10 +396,26 @@ def audio_timer_markup_start(videoid, user_id, current_time, total_time):
     buttons = [
 
         [
-          
-            InlineKeyboardButton(text="Support", url=f"https://t.me/UNIQUE_SOCIETY"),
-            InlineKeyboardButton(text="Updates", url=f"https://t.me/BLAZE_SUPPORT"),
-        
+
+            InlineKeyboardButton(
+
+                text=f"{total_time} ------------------ {current_time}",
+
+                callback_data=f"timer_checkup_markup {videoid}|{user_id}",
+
+            )
+
+        ],
+
+        [
+
+            InlineKeyboardButton(text="Support⁩", url=f"https://t.me/TheMafiaSupport"),
+            InlineKeyboardButton(text="Updates", url=f"https://t.me/TheMafiaNetwork"),
+
+        ],
+
+        [InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close")],
+
     ]
 
     return buttons
@@ -410,8 +426,12 @@ audio_markup2 = InlineKeyboardMarkup(
 
         [
 
-            InlineKeyboardButton(text="Support", url=f"https://t.me/UNIQUE_SOCIETY"),
-            InlineKeyboardButton(text="Updates", url=f"https://t.me/BLAZE_SUPPORT"),       
+            InlineKeyboardButton(text="Support", url=f"https://t.me/BLAZE_SUPPORT"),
+            InlineKeyboardButton(text="Support", url=f"https://t.me/@The_Blaze_Network"),
+
+        ],
+
+        [InlineKeyboardButton("🗑 Close Menu", callback_data="close")],
 
     ]
 
