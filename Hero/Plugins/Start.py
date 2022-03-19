@@ -111,7 +111,38 @@ async def useradd(_, message: Message):
         photo=f"https://telegra.ph/file/46247f00eecfb587117c0.jpg",
         caption=f"""**Hello, My name is Happy Musíc Bot.\n\nI'm a telegram streaming bot with some useful features. Supporting platforms like Youtube, Spotify, Resso, AppleMusic , Soundcloud etc.\n\nFeel free to add me to your groups.
 **""",
-    
+     reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "🔎 How to Use? Commands Menu.",
+                        callback_data="cbcmds",
+                    )
+                ], 
+                [            
+                    InlineKeyboardButton("📨 Support", url=f"https://t.me/TheMafiaSupport"),
+                    InlineKeyboardButton("📨 Channel", url=f"https://t.me/TheMafiaNetwork"),               
+                ],
+                [
+                    InlineKeyboardButton(
+                        "✚ Add me to your Group", url=f"https://t.me/Happy_ro_bot?startgroup=true"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "👤 Bot Owner", url=f"https://t.me/OFFICIAL_AFK_xD"
+                    ),
+                    InlineKeyboardButton(
+                        "💡 About Me", url=f"https://t.me/iTzz_Official"                  
+                    ),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "✳️ Chichat ", url=f"https://t.me/UNIQUE_SOCIETY")
+
+              ],
+            ]
+        ),
+    )
 
     
 
