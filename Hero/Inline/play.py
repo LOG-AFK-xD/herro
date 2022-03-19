@@ -332,13 +332,14 @@ def secondary_markup2(videoid, user_id):
 
         [
 
-            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞⁩", url=f"https://t.me/AlishaSupport"),
+            InlineKeyboardButton(text="📨 Support⁩", url=f"https://t.me/UNIQUE_SOCIETY"),
+            InlineKeyboardButton(text="Channel 📨", url=f"https://t.me/BLAZE_SUPPORT"),
 
         ],
 
         [
 
-            InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close"),
+            InlineKeyboardButton(text="🗑 Close Menu", callback_data=f"close"),
 
         ],
 
@@ -358,13 +359,14 @@ def primary_markup(videoid, user_id, current_time, total_time):
 
         [
 
-            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞⁩", url=f"https://t.me/AlishaSupport"),
+            InlineKeyboardButton(text="📨 Support⁩", url=f"https://t.me/UNIQUE_SOCIETY"),
+            InlineKeyboardButton(text="Channel 📨", url=f"https://t.me/BLAZE_SUPPORT"),
 
         ],
 
         [
 
-            InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close"),
+            InlineKeyboardButton(text="🗑 Close Menu", callback_data=f"close"),
 
         ],
 
@@ -378,13 +380,14 @@ def timer_markup(videoid, user_id, current_time, total_time):
 
         [
 
-            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞⁩", url=f"https://t.me/AlishaSupport"),
+            InlineKeyboardButton(text="📨 Support⁩", url=f"https://t.me/UNIQUE_SOCIETY"),
+            InlineKeyboardButton(text="Channel 📨", url=f"https://t.me/BLAZE_SUPPORT"),
 
         ],
 
         [
 
-            InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close"),
+            InlineKeyboardButton(text="🗑 Close Menu, callback_data=f"close"),
 
         ],
 
@@ -401,13 +404,15 @@ def audio_markup(videoid, user_id, current_time, total_time):
 
         [
 
-            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞⁩", url=f"https://t.me/AlishaSupport"),
+             InlineKeyboardButton(text="📨 Support⁩", url=f"https://t.me/UNIQUE_SOCIETY"),
+            InlineKeyboardButton(text="Channel 📨", url=f"https://t.me/BLAZE_SUPPORT"),
+
 
         ],
 
         [
 
-            InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close"),
+            InlineKeyboardButton(text="🗑 Close Menu", callback_data=f"close"),
 
         ],
 
@@ -432,11 +437,12 @@ def audio_timer_markup_start(videoid, user_id, current_time, total_time):
 
         [
 
-            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞⁩", url=f"https://t.me/AlishaSupport"),
+             InlineKeyboardButton(text="📨 Support⁩", url=f"https://t.me/UNIQUE_SOCIETY"),
+            InlineKeyboardButton(text="Channel 📨", url=f"https://t.me/BLAZE_SUPPORT"),
 
         ],
 
-        [InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close")],
+        [InlineKeyboardButton(text="🗑 Close Menu", callback_data=f"close")],
 
     ]
 
@@ -448,11 +454,12 @@ audio_markup2 = InlineKeyboardMarkup(
 
         [
 
-            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞", url=f"https://t.me/AlishaSupport"),
+            InlineKeyboardButton(text="📨 Support⁩", url=f"https://t.me/UNIQUE_SOCIETY"),
+            InlineKeyboardButton(text="Channel 📨", url=f"https://t.me/BLAZE_SUPPORT"),
 
         ],
 
-        [InlineKeyboardButton("🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data="close")],
+        [InlineKeyboardButton("🗑 Close Menu", callback_data="close")],
 
     ]
 
