@@ -9,10 +9,10 @@ from pyrogram.types import Message
 from Hero import BOT_USERNAME, MUSIC_BOT_NAME, app, boottime
 from Hero.Utilities.ping import get_readable_time
 
-__MODULE__ = "ᴘɪɴɢ"
+__MODULE__ = "Ping"
 __HELP__ = """
 
-`/ping` - ᴄʜᴇᴄᴋ ɪғ ʙᴏᴛ ɪs ᴀʟɪᴠᴇ ᴏʀ ɴᴏᴛ.
+`/ping` - Check If bot Is Alive or Not.
 """
 
 
@@ -34,11 +34,11 @@ async def ping(_, message):
     start = datetime.now()
     response = await message.reply_photo(
         photo="Utils/Telegram.JPEG",
-        caption="🌸 ᴘɪɴɢ...",
+        caption="🌸 Ping...",
     )
     uptime = await bot_sys_stats()
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     await response.edit_text(
-        f"**💐 ᴘᴏɴɢ**\n`⚡{resp} ᴍs`\n\n**{MUSIC_BOT_NAME} sʏsᴛᴇᴍ sᴛᴀᴛs:**{uptime}"
+        f"**💐 Pong**\n`⚡{resp} Ms`\n\n**{MUSIC_BOT_NAME} System Stats:**{uptime}"
     )
