@@ -33,29 +33,31 @@ HELPABLE = {}
 
 async def initiate_bot():
     with console.status(
-        "[magenta] Booting up The Hero Music Bot...",
+        "[magenta] Finalizing Booting...",
     ) as status:
-        console.print("┌ [red]Clearing MongoDB cache...")
+        try:
+            chats = await get_active_video_chats()
+            for chat in chats:
+                chat_id = int(chat["chat_id"])
+                await remove_active_video_chat(chat_id)
+        except Exception as e:
+            pass
         try:
             chats = await get_active_chats()
             for chat in chats:
                 chat_id = int(chat["chat_id"])
                 await remove_active_chat(chat_id)
         except Exception as e:
-            console.print("[red] Error while clearing Mongo DB.")
-        console.print("└ [green]MongoDB Cleared Successfully!\n\n")
-        ____ = await startup_send_new("Importing All Plugins...")
+            pass
         status.update(
             status="[bold blue]Scanning for Plugins", spinner="earth"
         )
-        await asyncio.sleep(1.7)
         console.print("Found {} Plugins".format(len(ALL_MODULES)) + "\n")
         status.update(
             status="[bold red]Importing Plugins...",
             spinner="bouncingBall",
             spinner_style="yellow",
         )
-        await asyncio.sleep(1.2)
         for all_module in ALL_MODULES:
             imported_module = importlib.import_module(
                 "Hero.Plugins." + all_module
@@ -75,56 +77,156 @@ async def initiate_bot():
             console.print(
                 f">> [bold cyan]Successfully imported: [green]{all_module}.py"
             )
-            await asyncio.sleep(0.2)
         console.print("")
-        _____ = await startup_edit_last(____, "Finalizing...")
         status.update(
             status="[bold blue]Importation Completed!",
         )
-        await asyncio.sleep(2.4)
-        await startup_delete_last(_____)
     console.print(
-        "[bold green]Congrats!! Hero Music Bot has started successfully!\n"
+        "[bold green]ᴄᴏɴɢʀᴀᴛs ᴍᴜsɪᴄ ʙᴏᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨\n"
     )
     try:
         await app.send_message(
             LOG_GROUP_ID,
-            "<b>Congrats!! Music Bot has started successfully!</b>",
+            "<b>ᴄᴏɴɢʀᴀᴛs ᴍᴜsɪᴄ ʙᴏᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
         )
     except Exception as e:
         print(
-            "Bot has failed to access the log Channel. Make sure that you have added your bot to your log channel and promoted as admin!"
+            "\nʙᴏᴛ ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
         )
-        console.print(f"\n[red]Stopping Bot")
+        console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
         return
     a = await app.get_chat_member(LOG_GROUP_ID, BOT_ID)
     if a.status != "administrator":
-        print("Promote Bot as Admin in Logger Channel")
-        console.print(f"\n[red]Stopping Bot")
+        print("ᴘʀᴏᴍᴏᴛᴇ ʙᴏᴛ ᴀs ᴀᴅᴍɪɴ ɪɴ ʟᴏɢɢᴇʀ ᴄʜᴀɴɴᴇʟ")
+        console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
         return
-    try:
-        await userbot.send_message(
-            LOG_GROUP_ID,
-            "<b>Congrats!! Assistant has started successfully!</b>",
-        )
-    except Exception as e:
-        print(
-            "Assistant Account has failed to access the log Channel. Make sure that you have added your bot to your log channel and promoted as admin!"
-        )
-        console.print(f"\n[red]Stopping Bot")
-        return
-    try:
-        await userbot.join_chat("UNIQUE_SOCIETY")
-    except:
-        pass
-    console.print(f"\n┌[red] Bot Started as {BOT_NAME}!")
-    console.print(f"├[green] ID :- {BOT_ID}!")
-    console.print(f"├[red] Assistant Started as {ASSNAME}!")
-    console.print(f"└[green] ID :- {ASSID}!")
-    await run()
-    console.print(f"\n[red]Stopping Bot")
-
-
+    console.print(f"\n┌[red] ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ᴀs {BOT_NAME}")
+    console.print(f"├[green] ɪᴅ :- {BOT_ID}")
+    if STRING1 != "None":
+        try:
+            await ASS_CLI_1.send_message(
+                LOG_GROUP_ID,
+                "<b>ᴄᴏɴɢʀᴀᴛs ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ 𝟷 ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
+            )
+        except Exception as e:
+            print(
+                "\nᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ 1 ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
+            )
+            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
+            return
+        try:
+            await ASS_CLI_1.join_chat("AlishaSupport")
+            await ASS_CLI_1.join_chat("Shayri_Music_Lovers")
+        except:
+            pass
+        console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 1 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME1}")
+        console.print(f"├[green] ɪᴅ :- {ASSID1}")
+    if STRING2 != "None":
+        try:
+            await ASS_CLI_2.send_message(
+                LOG_GROUP_ID,
+                "<b>ᴄᴏɴɢʀᴀᴛs ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ 2 ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
+            )
+        except Exception as e:
+            print(
+                "\nᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ 2 ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
+            )
+            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
+            return
+        try:
+            await ASS_CLI_2.join_chat("modmenumaking")
+            await ASS_CLI_2.join_chat("yaaro_ki_yaarii")
+        except:
+            pass
+        console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 2 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME2}")
+        console.print(f"├[green] ɪᴅ :- {ASSID2}")
+    if STRING3 != "None":
+        try:
+            await ASS_CLI_3.send_message(
+                LOG_GROUP_ID,
+                "<b>ᴄᴏɴɢʀᴀᴛs ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ 3 ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
+            )
+        except Exception as e:
+            print(
+                "\nᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ 3 ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
+            )
+            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
+            return
+        try:
+            await ASS_CLI_3.join_chat("modmenumaking")
+            await ASS_CLI_3.join_chat("yaaro_ki_yaarii")
+        except:
+            pass
+        console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 3 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME3}")
+        console.print(f"├[green] ɪᴅ :- {ASSID3}")
+    if STRING4 != "None":
+        try:
+            await ASS_CLI_4.send_message(
+                LOG_GROUP_ID,
+                "<b>ᴄᴏɴɢʀᴀᴛs ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ 4 ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
+            )
+        except Exception as e:
+            print(
+                "\nᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ 4 ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
+            )
+            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
+            return
+        try:
+            await ASS_CLI_4.join_chat("modmenumaking")
+            await ASS_CLI_4.join_chat("yaaro_ki_yaarii")
+        except:
+            pass
+        console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 4 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME4}")
+        console.print(f"├[green] ɪᴅ :- {ASSID4}")
+    if STRING5 != "None":
+        try:
+            await ASS_CLI_5.send_message(
+                LOG_GROUP_ID,
+                "<b>ᴄᴏɴɢʀᴀᴛs ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ 5 ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
+            )
+        except Exception as e:
+            print(
+                "\nᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ 5 ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
+            )
+            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
+            return
+        try:
+            await ASS_CLI_5.join_chat("AlishaSupport")
+            await ASS_CLI_5.join_chat("Shayri_Music_Lovers")
+        except:
+            pass
+        console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 5 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME5}")
+        console.print(f"├[green] ɪᴅ :- {ASSID5}")
+    if LOG_SESSION != "None":
+        try:
+            await LOG_CLIENT.send_message(
+                LOG_GROUP_ID,
+                "<b>ᴄᴏɴɢʀᴀᴛs ʟᴏɢɢᴇʀ ᴄʟɪᴇɴᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
+            )
+        except Exception as e:
+            print(
+                "\nʟᴏɢɢᴇʀ ᴄʟɪᴇɴᴛ ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ʟᴏɢɢᴇʀ ᴀᴄᴄᴏᴜɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
+            )
+            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
+            return
+        try:
+            await LOG_CLIENT.join_chat("AlishaSupport")
+            await LOG_CLIENT.join_chat("Shayri_Music_Lovers")
+        except:
+            pass
+    console.print(f"└[red] ᴍᴜsɪᴄ ʙᴏᴛ ʙᴏᴏᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ...")
+    if STRING1 != "None":
+        await pytgcalls1.start()
+    if STRING2 != "None":
+        await pytgcalls2.start()
+    if STRING3 != "None":
+        await pytgcalls3.start()
+    if STRING4 != "None":
+        await pytgcalls4.start()
+    if STRING5 != "None":
+        await pytgcalls5.start()
+    await idle()
+    console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
 home_text_pm = f"""Hello ,
 My name is {BOT_NAME}.
 I'm Telegram Voice Chat Audio with some useful features.
