@@ -3,25 +3,19 @@ import importlib
 import os
 import re
 
+from config import LOG_GROUP_ID
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from pytgcalls import idle
 from rich.console import Console
 from rich.table import Table
 from youtubesearchpython import VideosSearch
 
-from config import (LOG_GROUP_ID, LOG_SESSION, STRING1, STRING2, STRING3,
-                    STRING4, STRING5)
-from Hero import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASS_CLI_5,
-                   ASSID1, ASSID2, ASSID3, ASSID4, ASSID5, ASSNAME1, ASSNAME2,
-                   ASSNAME3, ASSNAME4, ASSNAME5, BOT_ID, BOT_NAME, LOG_CLIENT,
-                   OWNER_ID, app)
-from Hero.Core.Clients.cli import LOG_CLIENT
-from Hero.Core.PyTgCalls.Hero import (pytgcalls1, pytgcalls2, pytgcalls3,
-                                        pytgcalls4, pytgcalls5)
-from Hero.Database import (get_active_chats, get_active_video_chats,
-                            get_sudoers, is_on_off, remove_active_chat,
-                            remove_active_video_chat)
+from Hero import (ASSID, ASSMENTION, ASSNAME, ASSUSERNAME, BOT_ID, BOT_NAME,
+                   BOT_USERNAME, SUDOERS, app, db, userbot)
+from Hero.Core.Logger.Log import (startup_delete_last, startup_edit_last,
+                                   startup_send_new)
+from Hero.Core.PyTgCalls.Yukki import run
+from Hero.Database import get_active_chats, get_sudoers, remove_active_chat
 from Hero.Inline import private_panel
 from Hero.Plugins import ALL_MODULES
 from Hero.Utilities.inline import paginate_modules
@@ -33,31 +27,29 @@ HELPABLE = {}
 
 async def initiate_bot():
     with console.status(
-        "[magenta] Finalizing Booting...",
+        "[magenta] Booting up The Hero Music Bot...",
     ) as status:
-        try:
-            chats = await get_active_video_chats()
-            for chat in chats:
-                chat_id = int(chat["chat_id"])
-                await remove_active_video_chat(chat_id)
-        except Exception as e:
-            pass
+        console.print("┌ [red]Clearing MongoDB cache...")
         try:
             chats = await get_active_chats()
             for chat in chats:
                 chat_id = int(chat["chat_id"])
                 await remove_active_chat(chat_id)
         except Exception as e:
-            pass
+            console.print("[red] Error while clearing Mongo DB.")
+        console.print("└ [green]MongoDB Cleared Successfully!\n\n")
+        ____ = await startup_send_new("Importing All Plugins...")
         status.update(
             status="[bold blue]Scanning for Plugins", spinner="earth"
         )
+        await asyncio.sleep(1.7)
         console.print("Found {} Plugins".format(len(ALL_MODULES)) + "\n")
         status.update(
             status="[bold red]Importing Plugins...",
             spinner="bouncingBall",
             spinner_style="yellow",
         )
+        await asyncio.sleep(1.2)
         for all_module in ALL_MODULES:
             imported_module = importlib.import_module(
                 "Hero.Plugins." + all_module
@@ -77,163 +69,61 @@ async def initiate_bot():
             console.print(
                 f">> [bold cyan]Successfully imported: [green]{all_module}.py"
             )
+            await asyncio.sleep(0.2)
         console.print("")
+        _____ = await startup_edit_last(____, "Finalizing...")
         status.update(
             status="[bold blue]Importation Completed!",
         )
+        await asyncio.sleep(2.4)
+        await startup_delete_last(_____)
     console.print(
-        "[bold green]ᴄᴏɴɢʀᴀᴛs ᴍᴜsɪᴄ ʙᴏᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨\n"
+        "[bold green]Congrats!! Hero Music Bot has started successfully!\n"
     )
     try:
         await app.send_message(
             LOG_GROUP_ID,
-            "<b>ᴄᴏɴɢʀᴀᴛs ᴍᴜsɪᴄ ʙᴏᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
+            "<b>Congrats!! Music Bot has started successfully!</b>",
         )
     except Exception as e:
         print(
-            "\nʙᴏᴛ ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
+            "Bot has failed to access the log Channel. Make sure that you have added your bot to your log channel and promoted as admin!"
         )
-        console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
+        console.print(f"\n[red]Stopping Bot")
         return
     a = await app.get_chat_member(LOG_GROUP_ID, BOT_ID)
     if a.status != "administrator":
-        print("ᴘʀᴏᴍᴏᴛᴇ ʙᴏᴛ ᴀs ᴀᴅᴍɪɴ ɪɴ ʟᴏɢɢᴇʀ ᴄʜᴀɴɴᴇʟ")
-        console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
+        print("Promote Bot as Admin in Logger Channel")
+        console.print(f"\n[red]Stopping Bot")
         return
-    console.print(f"\n┌[red] ʙᴏᴛ sᴛᴀʀᴛᴇᴅ ᴀs {BOT_NAME}")
-    console.print(f"├[green] ɪᴅ :- {BOT_ID}")
-    if STRING1 != "None":
-        try:
-            await ASS_CLI_1.send_message(
-                LOG_GROUP_ID,
-                "<b>ᴄᴏɴɢʀᴀᴛs ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ 𝟷 ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
-            )
-        except Exception as e:
-            print(
-                "\nᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ 1 ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
-            )
-            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
-            return
-        try:
-            await ASS_CLI_1.join_chat("AlishaSupport")
-            await ASS_CLI_1.join_chat("Shayri_Music_Lovers")
-        except:
-            pass
-        console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 1 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME1}")
-        console.print(f"├[green] ɪᴅ :- {ASSID1}")
-    if STRING2 != "None":
-        try:
-            await ASS_CLI_2.send_message(
-                LOG_GROUP_ID,
-                "<b>ᴄᴏɴɢʀᴀᴛs ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ 2 ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
-            )
-        except Exception as e:
-            print(
-                "\nᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ 2 ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
-            )
-            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
-            return
-        try:
-            await ASS_CLI_2.join_chat("modmenumaking")
-            await ASS_CLI_2.join_chat("yaaro_ki_yaarii")
-        except:
-            pass
-        console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 2 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME2}")
-        console.print(f"├[green] ɪᴅ :- {ASSID2}")
-    if STRING3 != "None":
-        try:
-            await ASS_CLI_3.send_message(
-                LOG_GROUP_ID,
-                "<b>ᴄᴏɴɢʀᴀᴛs ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ 3 ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
-            )
-        except Exception as e:
-            print(
-                "\nᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ 3 ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
-            )
-            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
-            return
-        try:
-            await ASS_CLI_3.join_chat("modmenumaking")
-            await ASS_CLI_3.join_chat("yaaro_ki_yaarii")
-        except:
-            pass
-        console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 3 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME3}")
-        console.print(f"├[green] ɪᴅ :- {ASSID3}")
-    if STRING4 != "None":
-        try:
-            await ASS_CLI_4.send_message(
-                LOG_GROUP_ID,
-                "<b>ᴄᴏɴɢʀᴀᴛs ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ 4 ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
-            )
-        except Exception as e:
-            print(
-                "\nᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ 4 ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
-            )
-            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
-            return
-        try:
-            await ASS_CLI_4.join_chat("modmenumaking")
-            await ASS_CLI_4.join_chat("yaaro_ki_yaarii")
-        except:
-            pass
-        console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 4 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME4}")
-        console.print(f"├[green] ɪᴅ :- {ASSID4}")
-    if STRING5 != "None":
-        try:
-            await ASS_CLI_5.send_message(
-                LOG_GROUP_ID,
-                "<b>ᴄᴏɴɢʀᴀᴛs ᴀssɪsᴛᴀɴᴛ ᴄʟɪᴇɴᴛ 5 ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
-            )
-        except Exception as e:
-            print(
-                "\nᴀssɪsᴛᴀɴᴛ ᴀᴄᴄᴏᴜɴᴛ 5 ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ᴀssɪsᴛᴀɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
-            )
-            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
-            return
-        try:
-            await ASS_CLI_5.join_chat("AlishaSupport")
-            await ASS_CLI_5.join_chat("Shayri_Music_Lovers")
-        except:
-            pass
-        console.print(f"├[red] ᴀssɪsᴛᴀɴᴛ 5 sᴛᴀʀᴛᴇᴅ ᴀs {ASSNAME5}")
-        console.print(f"├[green] ɪᴅ :- {ASSID5}")
-    if LOG_SESSION != "None":
-        try:
-            await LOG_CLIENT.send_message(
-                LOG_GROUP_ID,
-                "<b>ᴄᴏɴɢʀᴀᴛs ʟᴏɢɢᴇʀ ᴄʟɪᴇɴᴛ ʜᴀs sᴛᴀʀᴛᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ 🌸✨</b>",
-            )
-        except Exception as e:
-            print(
-                "\nʟᴏɢɢᴇʀ ᴄʟɪᴇɴᴛ ʜᴀs ғᴀɪʟᴇᴅ ᴛᴏ ᴀᴄᴄᴇss ᴛʜᴇ ʟᴏɢ ᴄʜᴀɴɴᴇʟ. ᴍᴀᴋᴇ sᴜʀᴇ ᴛʜᴀᴛ ʏᴏᴜ ʜᴀᴠᴇ ᴀᴅᴅᴇᴅ ʏᴏᴜʀ ʟᴏɢɢᴇʀ ᴀᴄᴄᴏᴜɴᴛ ᴛᴏ ʏᴏᴜʀ ʟᴏɢ ᴄʜᴀɴɴᴇʟ ᴀɴᴅ ᴘʀᴏᴍᴏᴛᴇᴅ ᴀs ᴀᴅᴍɪɴ❗"
-            )
-            console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
-            return
-        try:
-            await LOG_CLIENT.join_chat("AlishaSupport")
-            await LOG_CLIENT.join_chat("Shayri_Music_Lovers")
-        except:
-            pass
-    console.print(f"└[red] ᴍᴜsɪᴄ ʙᴏᴛ ʙᴏᴏᴛ ᴄᴏᴍᴘʟᴇᴛᴇᴅ...")
-    if STRING1 != "None":
-        await pytgcalls1.start()
-    if STRING2 != "None":
-        await pytgcalls2.start()
-    if STRING3 != "None":
-        await pytgcalls3.start()
-    if STRING4 != "None":
-        await pytgcalls4.start()
-    if STRING5 != "None":
-        await pytgcalls5.start()
-    await idle()
-    console.print(f"\n[red]sᴛᴏᴘᴘɪɴɢ ʙᴏᴛ")
+    try:
+        await userbot.send_message(
+            LOG_GROUP_ID,
+            "<b>Congrats!! Assistant has started successfully!</b>",
+        )
+    except Exception as e:
+        print(
+            "Assistant Account has failed to access the log Channel. Make sure that you have added your bot to your log channel and promoted as admin!"
+        )
+        console.print(f"\n[red]Stopping Bot")
+        return
+    try:
+        await userbot.join_chat("UNIQUE_SOCIETY")
+    except:
+        pass
+    console.print(f"\n┌[red] Bot Started as {BOT_NAME}!")
+    console.print(f"├[green] ID :- {BOT_ID}!")
+    console.print(f"├[red] Assistant Started as {ASSNAME}!")
+    console.print(f"└[green] ID :- {ASSID}!")
+    await run()
+    console.print(f"\n[red]Stopping Bot")
 
 
-home_text_pm = f"""ʜᴇʟʟᴏ ,
-ᴍʏ ɴᴀᴍᴇ ɪs {BOT_NAME}.
-ᴀ ᴛᴇʟᴇɢʀᴀᴍ ᴍᴜsɪᴄ+ᴠɪᴅᴇᴏ sᴛʀᴇᴀᴍɪɴɢ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
+home_text_pm = f"""Hello ,
+My name is {BOT_NAME}.
+I'm Telegram Voice Chat Audio with some useful features.
 
-ᴀʟʟ ᴄᴏᴍᴍᴀɴᴅs ᴄᴀɴ ʙᴇ ᴜsᴇᴅ ᴡɪᴛʜ: / """
+All commands can be used with: / """
 
 
 @app.on_message(filters.command("help") & filters.private)
@@ -242,53 +132,28 @@ async def help_command(_, message):
     await app.send_message(message.chat.id, text, reply_markup=keyboard)
 
 
-@app.on_message(filters.command("Hero") & filters.private)
+@app.on_message(filters.command("start") & filters.private)
 async def start_command(_, message):
     if len(message.text.split()) > 1:
         name = (message.text.split(None, 1)[1]).lower()
         if name[0] == "s":
             sudoers = await get_sudoers()
-            text = "⭐️<u> **Owners:**</u>\n"
-            sex = 0
-            for x in OWNER_ID:
+            text = "**__Sudo Users List of Bot:-__**\n\n"
+            j = 0
+            for count, user_id in enumerate(sudoers, 1):
                 try:
-                    user = await app.get_users(x)
+                    user = await app.get_users(user_id)
                     user = (
                         user.first_name if not user.mention else user.mention
                     )
-                    sex += 1
                 except Exception:
                     continue
-                text += f"{sex}➤ {user}\n"
-            smex = 0
-            for count, user_id in enumerate(sudoers, 1):
-                if user_id not in OWNER_ID:
-                    try:
-                        user = await app.get_users(user_id)
-                        user = (
-                            user.first_name
-                            if not user.mention
-                            else user.mention
-                        )
-                        if smex == 0:
-                            smex += 1
-                            text += "\n⭐️<u> **Sudo Users:**</u>\n"
-                        sex += 1
-                        text += f"{sex}➤ {user}\n"
-                    except Exception:
-                        continue
-            if not text:
-                await message.reply_text("ɴᴏ sᴜᴅᴏ ᴜsᴇʀs")
+                text += f"➤ {user}\n"
+                j += 1
+            if j == 0:
+                await message.reply_text("No Sudo Users")
             else:
                 await message.reply_text(text)
-            if await is_on_off(5):
-                sender_id = message.from_user.id
-                sender_name = message.from_user.first_name
-                umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
-                return await LOG_CLIENT.send_message(
-                    LOG_GROUP_ID,
-                    f"{message.from_user.mention} ʜᴀs ᴊᴜsᴛ sᴛᴀʀᴛᴇᴅ ʙᴏᴛ ᴛᴏ ᴄʜᴇᴄᴋ <code>sᴜᴅᴏʟɪsᴛ</code>\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**ᴜsᴇʀ ɴᴀᴍᴇ:** {sender_name}",
-                )
         if name == "help":
             text, keyboard = await help_parser(message.from_user.mention)
             await message.delete()
@@ -312,18 +177,18 @@ async def start_command(_, message):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-🔍__**ᴠɪᴅᴇᴏ ᴛʀᴀᴄᴋ ɪɴғᴏʀᴍᴀᴛɪᴏɴ**__
+🔍__**Video Track Information**__
 
-❇️**ᴛɪᴛʟᴇ:** {title}
+❇️**Title:** {title}
 
-⏳**ᴅᴜʀᴀᴛɪᴏɴ:** {duration} Mins
-👀**ᴠɪᴇᴡs:** `{views}`
-⏰**ᴘᴜʙʟɪsʜᴇᴅ ᴛɪᴍᴇ:** {published}
-🎥**ᴄʜᴀɴɴᴇʟ ɴᴀᴍᴇ:** {channel}
-📎**ᴄʜᴀɴɴᴇʟ ʟɪɴᴋ:** [Visit From Here]({channellink})
-🔗**ᴠɪᴅᴇᴏ ʟɪɴᴋ:** [Link]({link})
+⏳**Duration:** {duration} Mins
+👀**Views:** `{views}`
+⏰**Published Time:** {published}
+🎥**Channel Name:** {channel}
+📎**Channel Link:** [Visit From Here]({channellink})
+🔗**Video Link:** [Link]({link})
 
-⚡️ __sᴇᴀʀᴄʜᴇᴅ ᴘᴏᴡᴇʀᴇᴅ ʙʏ {BOT_NAME}__"""
+⚡️ __Searched Powered By {BOT_NAME}t__"""
             key = InlineKeyboardMarkup(
                 [
                     [
@@ -337,36 +202,18 @@ async def start_command(_, message):
                 ]
             )
             await m.delete()
-            await app.send_photo(
+            return await app.send_photo(
                 message.chat.id,
                 photo=thumbnail,
                 caption=searched_text,
                 parse_mode="markdown",
                 reply_markup=key,
             )
-            if await is_on_off(5):
-                sender_id = message.from_user.id
-                sender_name = message.from_user.first_name
-                umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
-                return await LOG_CLIENT.send_message(
-                    LOG_GROUP_ID,
-                    f"{message.from_user.mention} Has Just Started Bot To Check <code>Video Information</code>\n\n**User ID:** {sender_id}\n**User Name:** {sender_name}",
-                )
-            return
     out = private_panel()
-    await message.reply_text(
+    return await message.reply_text(
         home_text_pm,
         reply_markup=InlineKeyboardMarkup(out[1]),
     )
-    if await is_on_off(5):
-        sender_id = message.from_user.id
-        sender_name = message.from_user.first_name
-        umention = f"[{sender_name}](tg://user?id={int(sender_id)})"
-        return await LOG_CLIENT.send_message(
-            LOG_GROUP_ID,
-            f"{message.from_user.mention} Has Just Started Bot.\n\n**ᴜsᴇʀ ɪᴅ:** {sender_id}\n**User Name:** {sender_name}",
-        )
-    return
 
 
 async def help_parser(name, keyboard=None):
@@ -374,9 +221,10 @@ async def help_parser(name, keyboard=None):
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     return (
         """Hello {first_name},
-I Am Invite Music Bot I Can Play Music Your Voice Chat Click On The Buttons For More InInformation.
 
-All Command Can Be Used With: `/`
+Click on the buttons for more information.
+
+All commands can be used with: /
 """.format(
             first_name=name
         ),
@@ -400,8 +248,9 @@ async def help_button(client, query):
     create_match = re.match(r"help_create", query.data)
     top_text = f"""Hello {query.from_user.first_name},
 
-Click On The Buttons For Information.
-All Command Can Be Used With: /
+Click on the buttons for more information.
+
+All commands can be used with: /
  """
     if mod_match:
         module = mod_match.group(1)
