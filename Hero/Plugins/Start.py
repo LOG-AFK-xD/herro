@@ -111,16 +111,7 @@ async def useradd(_, message: Message):
         photo=f"https://telegra.ph/file/46247f00eecfb587117c0.jpg",
         caption=f"""**Hello, My name is Happy Musíc Bot.\n\nI'm a telegram streaming bot with some useful features. Supporting platforms like Youtube, Spotify, Resso, AppleMusic , Soundcloud etc.\n\nFeel free to add me to your groups.
 **""",
-    reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "➕ ❰ ᴊᴏɪɴ ʜᴇʀᴇ ғᴏʀ ᴜᴘᴅᴀᴛᴇs ❱ ➕", url=f"https://t.me/AlishaSupport")
-                ]
-                
-           ]
-        ),
-    )
+    
 
     
 
