@@ -3,7 +3,6 @@ import re
 import subprocess
 import sys
 import traceback
-from asyncio import create_subprocess_shell, sleep, subprocess
 from html import escape
 from inspect import getfullargspec
 from io import StringIO
@@ -11,9 +10,10 @@ from time import time
 
 from pyrogram import filters
 from pyrogram.errors import MessageNotModified
-from pyrogram.types import Message, ReplyKeyboardMarkup
+from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup,
+                            Message, ReplyKeyboardMarkup)
 
-from Hero import SUDOERS, app, userbot
+from Hero import SUDOERS, app
 from Hero.Utilities.tasks import add_task, rm_task
 
 # Eval and Sh module from WBB
