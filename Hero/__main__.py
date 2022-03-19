@@ -3,19 +3,25 @@ import importlib
 import os
 import re
 
-from config import LOG_GROUP_ID
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pytgcalls import idle
 from rich.console import Console
 from rich.table import Table
 from youtubesearchpython import VideosSearch
 
-from Hero import (ASSID, ASSMENTION, ASSNAME, ASSUSERNAME, BOT_ID, BOT_NAME,
-                   BOT_USERNAME, SUDOERS, app, db, userbot)
-from Hero.Core.Logger.Log import (startup_delete_last, startup_edit_last,
-                                   startup_send_new)
-from Hero.Core.PyTgCalls.Yukki import run
-from Hero.Database import get_active_chats, get_sudoers, remove_active_chat
+from config import (LOG_GROUP_ID, LOG_SESSION, STRING1, STRING2, STRING3,
+                    STRING4, STRING5)
+from Hero import (ASS_CLI_1, ASS_CLI_2, ASS_CLI_3, ASS_CLI_4, ASS_CLI_5,
+                   ASSID1, ASSID2, ASSID3, ASSID4, ASSID5, ASSNAME1, ASSNAME2,
+                   ASSNAME3, ASSNAME4, ASSNAME5, BOT_ID, BOT_NAME, LOG_CLIENT,
+                   OWNER_ID, app)
+from Hero.Core.Clients.cli import LOG_CLIENT
+from Hero.Core.PyTgCalls.Hero import (pytgcalls1, pytgcalls2, pytgcalls3,
+                                        pytgcalls4, pytgcalls5)
+from Hero.Database import (get_active_chats, get_active_video_chats,
+                            get_sudoers, is_on_off, remove_active_chat,
+                            remove_active_video_chat)
 from Hero.Inline import private_panel
 from Hero.Plugins import ALL_MODULES
 from Hero.Utilities.inline import paginate_modules
