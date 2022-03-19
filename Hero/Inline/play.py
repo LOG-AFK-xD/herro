@@ -358,27 +358,11 @@ def primary_markup(videoid, user_id, current_time, total_time):
 
         [
 
-            InlineKeyboardButton(
-
-                InlineKeyboardButton(text="Support", url=f"https://t.me/BLAZE_SUPPORT",
-
-            )
+            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞⁩", url=f"https://t.me/AlishaSupport"),
 
         ],
 
         [
-
-            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞", url=f"https://t.me/AlishaSupport"),
-
-        ],
-
-        [
-
-            InlineKeyboardButton(
-
-                text="🔗 ᴍᴏʀᴇ ᴍᴇɴᴜ", callback_data=f"other {videoid}|{user_id}"
-
-            ),
 
             InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close"),
 
@@ -394,31 +378,17 @@ def timer_markup(videoid, user_id, current_time, total_time):
 
         [
 
-            InlineKeyboardButton(
-
-                InlineKeyboardButton(text="Support", url=f"https://t.me/BLAZE_SUPPORT",
-              
-
-            )
+            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞⁩", url=f"https://t.me/AlishaSupport"),
 
         ],
 
         [
-
-            InlineKeyboardButton(
-
-                text="🔗 ᴍᴏʀᴇ ᴍᴇɴᴜ", callback_data=f"other {videoid}|{user_id}"
-
-            ),
 
             InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close"),
 
         ],
 
     ]
-
-    return buttons
-
 def audio_markup(videoid, user_id, current_time, total_time):
 
     if videoid not in db_mem:
@@ -431,25 +401,17 @@ def audio_markup(videoid, user_id, current_time, total_time):
 
         [
 
-            InlineKeyboardButton(
-
-                InlineKeyboardButton(text="Support", url=f"https://t.me/BLAZE_SUPPORT",
-               
-
-            )
+            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞⁩", url=f"https://t.me/AlishaSupport"),
 
         ],
 
         [
 
-            InlineKeyboardButton(text="💥 Jøɩɳ Ɦɘɤɘ & Sʋƥƥøɤʈ 💞", url=f"https://t.me/AlishaSupport"),
+            InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close"),
 
         ],
 
-        [InlineKeyboardButton(text="🗑 ᴄʟᴏsᴇ ᴍᴇɴᴜ", callback_data=f"close")],
-
     ]
-
     return buttons
 
 def audio_timer_markup_start(videoid, user_id, current_time, total_time):
